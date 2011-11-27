@@ -29,15 +29,20 @@
 		}
 	}
 	
-	//$value3 = hexdec($value3);
+	$value3 = hexdec($value3);
 	
 	$x = array(); 
 	  
-	array_push($x, $value3);
+	array_push($x, $value3); // creates an array of hex values
 	
 	$sum = array_sum($x);
 	
-	$av
+	$sum = $sum/4;// get the average of the array
+	
+	$sum = dechex($sum);
+	
+	echo "The average of the hex values:";
+	echo "<div style='background: #$sum; width: 250px; height: 95px;'></div>";
 	
 
 	
