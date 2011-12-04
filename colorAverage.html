@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.xcolor.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*var $colors = new Array('#00FF66','#443456','#000000','#ffffff');
+			var $currentColor1 = "#ffffff";
+
+			function $averageColors() {
+				$($colors).each(function(){	
+					var $currentColor = this;
+					var $aveColor = $.xcolor.average($currentColor, $currentColor1);
+					console.log($aveColor);
+					return $aveColor;
+				});
+			};
+			
+			for($i = 0; $i < $colors.length; $i++){
+				$averageColors();
+				console.log($i);
+			};*/
+			
+			var num = new Array(5, 5, 5, 5, 7);
+			
+			function averageColors(num, length) {
+				console.log(num);
+				if(num.length == 1) {
+					return num[0] / length;
+				} else {
+					num.unshift(num.shift() + num.shift());
+					return averageColors(num, length);
+				}
+			}
+			console.log(averageColors(num, num.length));
+		});
+		
+	</script>
+</head>
+<body>
+<p style="padding: 15px;">Hello</p>
+</body>
+</html>
