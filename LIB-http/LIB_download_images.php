@@ -153,7 +153,7 @@ function download_images_for_page($target)
     # Strip file name off target for use as page base
     $page_base=get_base_page_address($target);
     
-    # Identify the directory where iamges are to be saved
+    # Identify the directory where images are to be saved
     $save_image_directory = "saved_images_".str_replace("http://", "", $page_base);
     
     # Parse the image tags

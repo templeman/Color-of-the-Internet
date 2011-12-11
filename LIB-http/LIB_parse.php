@@ -145,7 +145,7 @@ $array = parse_array($string, $open_tag, $close_tag)
 -------------------------------------------------------------           
 DESCRIPTION:                                                            
         Returns an array of strings that exists repeatedly in $string.  
-        This function is usful for returning an array that contains     
+        This function is useful for returning an array that contains     
         links, images, tables or any other data that appears more than  
         once.                                                           
 INPUT:                                                                  

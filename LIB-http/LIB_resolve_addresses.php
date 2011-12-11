@@ -235,6 +235,7 @@ function get_base_page_address($url)
 	if($last_two_characters=="//")
 		$page_base = substr($page_base, 0, strlen($page_base)-1);
 
+	// print_r($page_base);
 	return $page_base;
 	}
 

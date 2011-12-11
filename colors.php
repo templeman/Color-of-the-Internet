@@ -7,39 +7,52 @@ include("hextorgb.php");
 
 $paths = exe_sql(DATABASE, "SELECT path FROM paths");
 print_r($paths);
+$match_test = array();
 
+function flatten_array($array) {
+// function to push all values within $spider_array into single dimensional array
+		$output = array(); 
+
+		// Push all $val onto $output. 
+		array_walk_recursive($array, create_function('$val, $key, $obj', 'array_push($obj, $val);'), &$output); 
+
+		return $output;
+}
 
 for($i=0; $i<count($paths); $i++){
 // foreach($paths as $value) {
-	$target = $paths[$i];
-	echo $target . "\n";
+	if(is_array($paths[0])) { // multiple rows from bd as multidimensional
+		$target = $paths[$i][0];
+	} else { // single row from db as single-dimensional array
+		$target = $paths[$i];
+	}
+	echo "Target path: " . $target . "\n";
 
 	# Download the css file
 	$web_page = http_get($target, $referer = "");
-	// print_r($web_page);
 
 	$properties_array = parse_array($web_page['FILE'], "{", "}");
 
-	foreach ($properties_array as $value) {
-		preg_match_all('/#([0-9abcdef]+?){3,6}/i', $value, $match);
-		// print_r($match);
-		// echo $match[0][0];
-		//echo $match[0][1];
-		// echo $match[0][2];
+	print_r($properties_array);
 
+	foreach ($properties_array as $value) {
+		$match_num = preg_match_all('/#([0-9a-f]+?){3,6}/i', $value, $match);
+			if($match_num > 0) {
+				array_push($match_test, $match[0]);
+			}
+		
 		foreach($match[0] as $k => $v) {
 			$rgb_array = (hex2RGB($v));
-			// print_r($rgb_array);
 			$data_array['red'] = $rgb_array[red];
 			$data_array['green'] = $rgb_array[green];
 			$data_array['blue'] = $rgb_array[blue];
 
-			// $data_array['color'] = $v;
 			insert(DATABASE, $table="colors", $data_array);
 		}
 	}
+	echo "Path #" . $i;
 }
-// for some reason #E4EAE4 is not being inserted properly in the db
-$test = '#CC0000';
-print_r(hex2RGB($test));
+$total_matches = flatten_array($match_test);
+echo "Total colors matched: ";
+print_r($total_matches);
 ?>
