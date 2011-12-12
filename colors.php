@@ -4,24 +4,15 @@ include("LIB-http/LIB_parse.php");
 include("LIB-http/LIB_http.php");
 include("LIB-http/LIB_mysql.php"); // Include mysql library
 include("hextorgb.php");
+include("flattenarray.php");
 
 $paths = exe_sql(DATABASE, "SELECT path FROM paths");
 print_r($paths);
 $match_test = array();
 
-function flatten_array($array) {
-// function to push all values within $spider_array into single dimensional array
-		$output = array(); 
-
-		// Push all $val onto $output. 
-		array_walk_recursive($array, create_function('$val, $key, $obj', 'array_push($obj, $val);'), &$output); 
-
-		return $output;
-}
-
 for($i=0; $i<count($paths); $i++){
 // foreach($paths as $value) {
-	if(is_array($paths[0])) { // multiple rows from bd as multidimensional
+	if(is_array($paths[0])) { // multiple rows returned from bd as multidimensional array
 		$target = $paths[$i][0];
 	} else { // single row from db as single-dimensional array
 		$target = $paths[$i];
@@ -52,6 +43,8 @@ for($i=0; $i<count($paths); $i++){
 	}
 	echo "Path #" . $i;
 }
+
+// Testing purposes only (output all color values)
 $total_matches = flatten_array($match_test);
 echo "Total colors matched: ";
 print_r($total_matches);

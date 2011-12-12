@@ -145,6 +145,19 @@ RETURNS:
 		Returns TRUE or FALSE depending on if the link should be        
         excluded                                                        
 ***********************************************************************/
+function in_array_recursive($needle, $haystack) { 
+
+    $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($haystack)); 
+
+    foreach($it AS $element) { 
+        if($element == $needle) { 
+            return true; 
+        } 
+    } 
+
+    return false; 
+} 
+
 function excluded_link($spider_array, $link)
     {
     # Initialization
@@ -159,6 +172,7 @@ function excluded_link($spider_array, $link)
         }
     
     // Exclude redundant links
+	 /*
     for($xx=0; $xx<count($spider_array); $xx++)
         {
         $saved_link="";
@@ -172,7 +186,18 @@ function excluded_link($spider_array, $link)
                 break;
                 }
             }
-        }
+		  } */
+	 // UPDATED to use in_array
+	 /*
+	 if(in_array($link, $spider_array)) {
+		 echo "Ignored redundant link: $link\n";
+		 $exclude=true;
+	 }*/
+
+	if(in_array_recursive($link, $spider_array)) {
+		echo "Ignored redundant link: $link\n";
+		$exclude=true;
+	}
     
     // Exclude links found in $exclusion_array
     for($xx=0; $xx<count($exclusion_array); $xx++)
@@ -185,7 +210,7 @@ function excluded_link($spider_array, $link)
         }
         
     // Exclude offsite links if requested
-    if($ALLOW_OFFISTE==false)
+    if($ALLOW_OFFSITE==false)
         {
         if(get_domain($link)!=get_domain($SEED_URL))
             {
@@ -194,6 +219,18 @@ function excluded_link($spider_array, $link)
             }
         }
 
+		// CUSTOM
+		// Exclude links to images or other elements that cannot
+		// hold a reference to a css file
+
+		// create extension array
+		$extensions = array('png', 'jpg', 'gif', 'pdf');
+		if (in_array((substr($link, -3, 3)), $extensions)) {
+			echo "Ignored excluded extension: $link\n";
+			$exclude=true;
+		}
+
     return $exclude;
     }
+
 ?>
