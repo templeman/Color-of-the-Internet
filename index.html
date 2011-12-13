@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Average Color of the Internet, Sort Of.</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.xcolor.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var colors = new Array('#00FF66','#443456','#000000','#ffffff', '#E28118', '#fffccc', '#A7A7A7', '#efefef');
+
+			function averageColors(colors, length) {
+				console.log(colors.length);
+				if(colors.length == 1) {
+					return aveColor = new String(colors);
+				} else {
+					colors.unshift($.xcolor.average(colors.shift(), colors.shift())); 
+					return averageColors(colors, length);
+				}
+			}  
+			console.log(averageColors(colors, colors.length));
+			var hexVal = aveColor.concat();
+			$("#color").css("background", hexVal);
+			
+			$("div#popup").hide();
+			
+			$("a.button").hover(function(){
+				$("div#popup").show();
+			},function(){
+				$("div#popup").hide();
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>Color of the Internet</h1>
+		<div id="color"></div>
+		<div class="push"></div>
+	</div><!-- end wrap -->
+    <footer>
+    	<footer id="inner">
+    		<div id="popup">
+    			<p>Popup.</p>
+    		</div>
+    		<ul>
+    			<li><a class="git" target="_blank" href="https://github.com/templeman/Color-of-the-Internet">Git</a></li>
+    			<li><a class="button" href="#" rel="?">?</a></li>
+    		</ul>
+    	</footer>
+   	</footer>
+</body>
+</html>
