@@ -82,14 +82,71 @@ footer#inner {
 	position: relative;
 }
 
+/* Popup Styles */
+
+#close {
+	float: right;
+	clear: right;
+	width: 20px;
+	height: 20px;
+	background: #F49090 url(close.png) no-repeat center;
+	padding: 5px 5px 0 0;
+	cursor: pointer;
+	-moz-border-radius: 0 2px 0 2px;
+	-webkit-border-radius: 0 2px 0 2px;
+	border-radius: 0 2px 0 2px;
+}
+
 footer div#popup {
-	width: 500px;
+	width: 600px;
 	height: 350px;
-	box-shadow: 2px 2px 2px #666666;
 	position: absolute;
 	top: -370px;
 	right: -50px;
 	background: #efefef;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#popup p {
+	width: 430px;
+	font-size: 12px;
+	line-height: 135%;
+	color: #444;
+	margin: 5px auto;
+}
+
+#popup h2 {
+	font-size: 22px;
+	color: #222;
+	margin: 30px auto 15px auto;
+	text-align: center;
+}
+
+#popup span {
+	margin: 5px 0 0 85px;
+	font-size: 12px;
+	color: #222;
+	font-weight: bold;
+}
+
+#popup h3 {
+	margin: 5px 0 5px 85px;
+	font-size: 16px;
+	color: #444;
+}
+
+#arrow {
+	display: block;
+	position: absolute;
+	top: 100%; /*should be set to 100% */
+	left: 517px;
+	width: 0;
+	height: 0;
+	border-color: #efefef transparent transparent transparent; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;
 }
 
 footer ul {
@@ -138,4 +195,5 @@ footer ul li a.button {
 footer ul li a.git {
 
 }
+
 
