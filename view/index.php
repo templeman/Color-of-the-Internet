@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
 	<script type="text/javascript" src="jquery.xcolor.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
 			var colors = new Array('#00FF66','#443456','#000000','#ffffff', '#E28118', '#fffccc', '#006600', '#efefef');
 
 			function averageColors(colors, length) {
@@ -21,6 +26,7 @@
 			}  
 			console.log(averageColors(colors, colors.length));
 			var hexVal = aveColor.concat();
+
 			$("#color").css("background", hexVal);
 			
 			$("div#popup").hide();
@@ -30,35 +36,41 @@
 			});
 			
 			$("#close").click(function(){
-				$("div#popup").hide();
+				$("div#popup").hide("fast");
 			});
+			
 		});
 	
 	</script>
 </head>
 <body>
 	<div id="wrap">
-		<h1>Color of the Internet</h1>
-		<div id="color"></div>
+		<h1>Average Color of a Site</h1>
+		<?php echo "<div id='color' style='background: $color'></div>"; ?>
 		<div class="push"></div>
 	</div><!-- end wrap -->
     <footer>
     	<footer id="inner">
     		<div id="popup">
-    		<div id="close"></div>
+    			<div id="close"></div>
     			<h2>Color of the Internet</h2>
     			<p>This project was conceived in the context of the Rapid Web course
-          at The Art Institute of Portland in Portland, Oregon.
-          The objective is to derive a single hexadecimal color value that is as close
-          an average as possible of all of the color values on the entire Internet.
-          This value will be obtained with a specialized web spider script designed to 
-          scrape websites for color values, store them, and ultimately average them
-          together to produce a final representative "Color of the Internet".</p>
-          <span>Contributers:</span>
-          <h3>Sam Templeman</h3>
-          <h3>Sean Harvey</h3>
-    			<div id="arrow"></div>
+		          at The Art Institute of Portland in Portland, Oregon.
+		          The objective is to derive a single hexadecimal color value that is as close
+		          an average as possible of all of the color values on the entire Internet.
+		          This value will be obtained with a specialized web spider script designed to 
+		          scrape websites for color values, store them, and ultimately average them
+		          together to produce a final representative "Color of the Internet".
+		         </p>
+		         <span>Contributers:</span>
+		         <h3>Sam Templeman</h3>
+		         <h3>Sean Harvey</h3>
+    			 <div id="arrow"></div>
     		</div>
+    		<form>
+    			<input type="text" placeholder="Enter a URL to get it's average color."/>
+    			<input type="submit" value="Submit" />
+    		</form>
     		<ul>
     			<li><a class="git" target="_blank" href="https://github.com/templeman/Color-of-the-Internet">Git</a></li>
     			<li><a class="button" href="#" rel="?">?</a></li>
@@ -67,3 +79,5 @@
    	</footer>
 </body>
 </html>
+
+
