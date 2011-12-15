@@ -1,12 +1,13 @@
 /*
--------------------------------------------->
-Sean H.
-Sam T.
-		 
-Rapid Web - Project 2
-Color of the Internet
--------------------------------------------->	
-*/
+ *  ------------------------------------>
+ * 
+ *  Sam Templeman
+ * 	Sean Harvey
+ * 
+ * 	Color of the Internet 
+ * 
+ *  ------------------------------------>
+ */
 
 * {
 	margin: 0;
@@ -53,7 +54,13 @@ div#color {
 	border: 1px solid #999999;
 }
 
-/* --------- Footer ---------- */
+/*
+ *  ------------------------------------>
+ * 
+ * 	Footer
+ * 
+ *  ------------------------------------>
+ */
 
 footer, div.push {
 	height: 75px;
@@ -82,7 +89,13 @@ footer#inner {
 	position: relative;
 }
 
-/* Popup Styles */
+/*
+ *  ------------------------------------>
+ * 
+ *  Popup and Close Button
+ * 
+ *  ------------------------------------>
+ */
 
 #close {
 	float: right;
@@ -137,19 +150,34 @@ footer div#popup {
 	color: #444;
 }
 
+/*
+ *  ------------------------------------>
+ * 
+ *  Creates a Triangle for the bottom of
+ *  Popup 
+ * 
+ *  ------------------------------------>
+ */
+
 #arrow {
 	display: block;
 	position: absolute;
-	top: 100%; /*should be set to 100% */
+	top: 100%;
 	left: 517px;
 	width: 0;
 	height: 0;
-	border-color: #efefef transparent transparent transparent; /*border color should be same as div div background color*/
+	border-color: #efefef transparent transparent transparent; 
 	border-style: solid;
 	border-width: 10px;
 }
 
-/* Form */
+/*
+ *  ------------------------------------>
+ * 
+ *  URL Entry Form
+ * 
+ *  ------------------------------------>
+ */
 
 footer form {
 	float: left;
@@ -181,6 +209,14 @@ footer form input[type="text"] {
 footer form input[type="text"]:focus {
 	border: 1px solid #FFB5CB;
 }
+
+/*
+ *  ------------------------------------>
+ * 
+ *  Submit Buttton
+ * 
+ *  ------------------------------------>
+ */
 
 footer form input[type="submit"] {
 	display: block;
@@ -252,14 +288,5 @@ footer ul li a:hover {
 	background: #333;	
 }
 
-/* -------- Button Specific Styles ---------*/
-
-footer ul li a.button {
-
-}
-
-footer ul li a.git {
-
-}
 
 

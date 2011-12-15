@@ -1,5 +1,6 @@
 <?php
-
+ 
+ // Php spider goes here.
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,10 @@
 	<script type="text/javascript" src="jquery.xcolor.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-
+			
+			// Using "x.color.average" in a recursive function to get an average of an array of hex values
+			
+			/*
 			var colors = new Array('#00FF66','#443456','#000000','#ffffff', '#E28118', '#fffccc', '#006600', '#efefef');
 
 			function averageColors(colors, length) {
@@ -28,19 +32,16 @@
 			var hexVal = aveColor.concat();
 
 			$("#color").css("background", hexVal);
+			*/
 			
 			$("div#popup").hide();
-			
 			$("a.button").click(function(){
 				$("div#popup").show();
 			});
-			
 			$("#close").click(function(){
 				$("div#popup").hide("fast");
 			});
-			
 		});
-	
 	</script>
 </head>
 <body>
