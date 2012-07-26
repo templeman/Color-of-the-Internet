@@ -1,0 +1,29 @@
+a {
+	color: #efefef;
+	font-size: 13px;
+}
+
+p {
+	color: #006600;
+	width: 500px;
+	line-height: 1em;
+}
+
+h1 {
+	width: 100px;
+	color: #c1c1c1;
+	margin: 1px 12px;
+}
+
+h2 {
+	width: 50px;
+	font-size: 24px;
+	letter-spacing: 12px;
+	margin: 12px;
+}
+
+form {
+	padding: 5px;
+	background: #333333;
+	border: 1px solid #444444;
+}
