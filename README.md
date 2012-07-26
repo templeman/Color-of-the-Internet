@@ -1,12 +1,12 @@
 # The Color of the Internet #
 
-[a neen]
+[a neen]  
 Programmatically target an average color of the Internet.
 
 ## Authors ##
 
-Sean Harvey
-Sam Templeman
+* Sean Harvey
+* Sam Templeman
 
 ## Abstract ##
 
